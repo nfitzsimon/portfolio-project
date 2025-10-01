@@ -102,6 +102,11 @@
   transition: background-color 500ms linear;
 }
 
+footer {
+  color: #ffffff;
+  padding: 10px 0px;
+}
+
 @media screen and (max-width: 769px) {
   .banner.banner__small {
     display: flex;
