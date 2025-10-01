@@ -1,4 +1,108 @@
 @media screen and (max-width: 769px) {
+  .header.header__small .header--inner {
+    max-width: 98vw;
+  }
+  .header.header__small .header--inner .topnav a {
+    display: none;
+  }
+  .header.header__small .header--inner .topnav a.icon {
+    display: block;
+  }
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: unset;
+  align-items: center;
+  width: 100vw;
+  color: #ffffff;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 120px;
+}
+.header .header--background {
+  background-color: #4D6AAA;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  transform-origin: left top;
+  animation: shrink-header linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0% 120px;
+}
+@keyframes shrink-header {
+  to {
+    transform: scaleY(0.6);
+  }
+}
+.header .header--inner {
+  max-width: 85vw;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.header .header--inner .header--logo {
+  height: 100px;
+  width: 300px;
+  transform-origin: left top;
+  animation: shrink-logo linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0% 120px;
+}
+@keyframes shrink-logo {
+  to {
+    transform: scale(0.6) translateY(-5px);
+  }
+}
+.header .header--inner .header--logo .logo {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.header .header--inner .topnav {
+  display: flex;
+  flex-direction: row;
+  justify-content: unset;
+  align-items: unset;
+  overflow: hidden;
+  margin-left: auto;
+  transform-origin: left top;
+  animation: shrink-nav linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0% 120px;
+}
+@keyframes shrink-nav {
+  to {
+    transform: translateY(-25px);
+  }
+}
+.header .header--inner .topnav a {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.header .header--inner .topnav a.icon {
+  display: none;
+  margin-left: auto;
+}
+.header .header--inner .topnav a:hover {
+  background-color: #374C2A;
+  color: #ffffff;
+  transition: background-color 500ms linear;
+}
+
+@media screen and (max-width: 769px) {
   .banner.banner__small {
     display: flex;
     flex-direction: column;

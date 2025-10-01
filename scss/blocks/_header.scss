@@ -1,0 +1,117 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+@media screen and (max-width: 769px) {
+  .header.header__small .header--inner {
+    max-width: 98vw;
+
+    .topnav a {
+      display: none;
+
+
+      &.icon {
+        display: block;
+      }
+    }
+  }
+}
+
+.header {
+  @include flex(row, unset, center);
+  width: 100vw;
+  color: #ffffff;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  height: 120px;
+
+  .header--background {
+    background-color: $primary-color;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    transform-origin: left top;
+    animation: shrink-header linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0% 120px;
+  }
+
+  @keyframes shrink-header {
+    to {
+      transform: scaleY(0.6);
+    }
+  }
+
+  .header--inner {
+    max-width: 85vw;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    .header--logo {
+      height: 100px;
+      width: 300px;
+      transform-origin: left top;
+      animation: shrink-logo linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0% 120px;
+
+      @keyframes shrink-logo {
+        to {
+          transform: scale(0.6) translateY(-5px);
+        }
+      }
+
+      .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .topnav {
+      @include flex();
+      overflow: hidden;
+      margin-left: auto;
+      transform-origin: left top;
+      animation: shrink-nav linear forwards;
+      animation-timeline: scroll();
+      animation-range: 0% 120px;
+
+      @keyframes shrink-nav {
+        to {
+          transform: translateY(-25px);
+        }
+      }
+
+
+      a {
+        display: block;
+        color: #ffffff;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+        &.icon {
+          display: none;
+          margin-left: auto;
+        }
+
+        &:hover {
+          background-color: $secondary-color;
+          color: #ffffff;
+          -webkit-transition: background-color 500ms linear;
+          -ms-transition: background-color 500ms linear;
+          transition: background-color 500ms linear;
+        }
+      }
+    }
+  }
+}
