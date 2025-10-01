@@ -1,0 +1,15 @@
+@use '../blocks/blocks';
+@use '../utils/variables' as *;
+
+body {
+  margin: 0;
+  background-color: blue;
+  justify-items: center;
+  width: 100vw;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
