@@ -1,0 +1,91 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+@media screen and (max-width: 769px) {
+  .banner.banner__small {
+    @include flex(column, unset, center);
+    align-items: center;
+
+    .headshot {
+      margin-bottom: 20px;
+      max-width: 320px;
+      width: 95vw;
+    }
+
+    .intro {
+      max-width: 320px;
+      max-height: 320px;
+      height: 95vw;
+      width: 95vw;
+    }
+  }
+}
+
+.banner {
+  @include flex(row, space-evenly);
+  padding: 20px 0px;
+  width: 100vw;
+  margin-top: 120px;
+
+  .headshot {
+    width: 320px;
+    border: 10px solid $base-color;
+  }
+
+  .intro {
+    @include flex(column, space-between);
+    width: 350px;
+    background-color: $base-color;
+    padding: 30px 25px;
+    color: $secondary-color;
+
+    .intro-text {
+      flex-grow: 2;
+      margin-top: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      color: $primary-color;
+    }
+
+    .button-container {
+      @include flex(row, space-evenly);
+      width: 100%;
+
+
+      .button {
+        width: 45%;
+        height: 50px;
+        font-size: 16pt;
+        border-radius: 5px;
+        border-style: none;
+
+        &__primary {
+          background-color: $primary-color;
+          color: white;
+
+          &:hover {
+            background-color: lighten($primary-color, 10%);
+            -webkit-transition: background-color 500ms linear;
+            -ms-transition: background-color 500ms linear;
+            transition: background-color 500ms linear;
+          }
+        }
+
+        &__secondary {
+          background-color: white;
+          color: $primary-color;
+          border: 1px solid $primary-color;
+
+          &:hover {
+            background-color: darken(white, 10%);
+            -webkit-transition: background-color 500ms linear;
+            -ms-transition: background-color 500ms linear;
+            transition: background-color 500ms linear;
+          }
+        }
+      }
+    }
+  }
+}
